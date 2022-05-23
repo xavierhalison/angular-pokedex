@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <button *ngIf="currentPage >= 4" routerLink="/list/1">&lt;&lt;</button>
+  <button
+    *ngFor="let button of buttons"
+    [class.selected]="currentPage === button"
+    routerLink="/list/{{ button }}"
+  >
+    {{ button }}
+  </button>
+  <button
+    *ngIf="currentPage < getLastPage() - 2"
+    routerLink="/list/{{ getLastPage() }}"
+  >
+    &gt;&gt;
+  </button>
+</div>

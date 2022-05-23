@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="header">
+    <button (click)="returnToList()" class="back">&lt;</button>
+    <div class="title">
+      <h1>{{ name | titlecase }}</h1>
+      <p>{{ id }}</p>
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="selected">
+      <img src="{{ selectedImage }}" alt="" class="avatar" />
+    </div>
+    <div class="list">
+      <img
+        src="{{ image.value }}"
+        (click)="selectImage(image.value)"
+        *ngFor="let image of images | objectToArray"
+      />
+    </div>
+  </div>
+  <h3>About</h3>
+  <div class="info">
+    <div>
+      <h4>stats:</h4>
+      <p *ngFor="let stat of stats">
+        {{ stat.stat.name }}: {{ stat.base_stat }}
+      </p>
+    </div>
+    <div>
+      <h4>types:</h4>
+      <p *ngFor="let type of types">{{ type.type.name }}</p>
+    </div>
+  </div>
+</div>

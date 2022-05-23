@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Pokédex</h1>
+  <p>Search for a Pokémon by name or using its National Pokédex number</p>
+  <div class="wrapper">
+    <app-card
+      *ngFor="let pokemon of pokemons; let index = index"
+      name="{{ pokemon.name | titlecase }}"
+    ></app-card>
+  </div>
+  <app-paginator [currentPage]="currentPage" [count]="count"></app-paginator>
+</div>
