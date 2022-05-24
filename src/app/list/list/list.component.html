@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Pokédex</h1>
-  <p>Search for a Pokémon by name or using its National Pokédex number</p>
-  <div class="wrapper">
+  <h1 class="text-primary">Pokédex</h1>
+  <div class="row">
     <app-card
+      class="col-6 col-lg-3"
       *ngFor="let pokemon of pokemons; let index = index"
       name="{{ pokemon.name | titlecase }}"
     ></app-card>

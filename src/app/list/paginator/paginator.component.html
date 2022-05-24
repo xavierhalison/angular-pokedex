@@ -1,16 +1,26 @@
-<div class="wrapper">
-  <button *ngIf="currentPage >= 4" routerLink="/list/1">&lt;&lt;</button>
-  <button
-    *ngFor="let button of buttons"
-    [class.selected]="currentPage === button"
-    routerLink="/list/{{ button }}"
-  >
-    {{ button }}
-  </button>
-  <button
-    *ngIf="currentPage < getLastPage() - 2"
-    routerLink="/list/{{ getLastPage() }}"
-  >
-    &gt;&gt;
-  </button>
+<div class="row justify-content-around mb-3">
+  <div class="col btn-group">
+    <button
+      class="btn btn-outline-primary"
+      routerLink="/list/1"
+      *ngIf="currentPage >= 4"
+    >
+      &lt;&lt;
+    </button>
+    <button
+      *ngFor="let button of buttons"
+      class="btn btn-outline-primary"
+      [class.active]="currentPage === button"
+      routerLink="/list/{{ button }}"
+    >
+      {{ button }}
+    </button>
+    <button
+      class="btn btn-outline-primary"
+      routerLink="/list/{{ getLastPage() }}"
+      *ngIf="currentPage < getLastPage() - 2"
+    >
+      &gt;&gt;
+    </button>
+  </div>
 </div>

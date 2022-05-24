@@ -1,5 +1,8 @@
-<div class="container" routerLink="/details/{{ number }}">
+<div
+  class="border rounded mb-3 p-3 d-flex flex-column justify-content-center align-items-center"
+  routerLink="/details/{{ number }}"
+>
   <img src="{{ imgSrc }}" alt="" class="hero" />
-  <h3 class="name">{{ name }}</h3>
-  <p class="number">{{ number }}</p>
+  <h4 class="text-dark text-center">{{ name }}</h4>
+  <p class="text-secondary text-center">{{ number }}</p>
 </div>

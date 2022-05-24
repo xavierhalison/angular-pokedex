@@ -1,34 +1,53 @@
 <div class="container">
-  <div class="header">
-    <button (click)="returnToList()" class="back">&lt;</button>
-    <div class="title">
-      <h1>{{ name | titlecase }}</h1>
-      <p>{{ id }}</p>
+  <div class="row align-items-center">
+    <div class="position-absolute">
+      <button (click)="returnToList()" class="btn btn-light">&lt;</button>
+    </div>
+    <div class="col mt-2">
+      <div class="title text-center">
+        <h1>{{ name | titlecase }}</h1>
+        <p>{{ id }}</p>
+      </div>
     </div>
   </div>
-  <div class="gallery">
-    <div class="selected">
-      <img src="{{ selectedImage }}" alt="" class="avatar" />
+  <div class="gallery container">
+    <div class="row">
+      <div
+        class="selected col border border-primary rounded bg-success d-flex justify-content-center align-items-center"
+      >
+        <img src="{{ selectedImage }}" alt="" class="avatar" />
+      </div>
     </div>
-    <div class="list">
+    <div class="list row justify-content-between">
       <img
+        *ngFor="let image of images | objectToArray"
         src="{{ image.value }}"
         (click)="selectImage(image.value)"
-        *ngFor="let image of images | objectToArray"
+        class="col-2 border rounded m-1"
       />
     </div>
   </div>
-  <h3>About</h3>
-  <div class="info">
-    <div>
-      <h4>stats:</h4>
-      <p *ngFor="let stat of stats">
-        {{ stat.stat.name }}: {{ stat.base_stat }}
-      </p>
-    </div>
-    <div>
-      <h4>types:</h4>
-      <p *ngFor="let type of types">{{ type.type.name }}</p>
+  <div class="container">
+    <h3 class="my-3 text-primary">About</h3>
+    <div class="info">
+      <div>
+        <h4 class="text-secondary">Stats:</h4>
+        <p
+          class="text-secondary d-flex justify-content-between"
+          *ngFor="let stat of stats"
+        >
+          <span> {{ stat.stat.name }}: </span>
+          <span class="badge bg-info">
+            {{ stat.base_stat }}
+          </span>
+        </p>
+      </div>
+      <div>
+        <h4 class="text-secondary">types:</h4>
+        <p class="text-secondary" *ngFor="let type of types">
+          <span class="badge bg-info">{{ type.type.name }}</span>
+        </p>
+      </div>
     </div>
   </div>
 </div>
